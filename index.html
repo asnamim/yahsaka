@@ -11,14 +11,16 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('heart.jpg');
+            background-color: black; /* Dark background to contrast yellow text */
+            background-image: url('heart.jpg')
             font-family: 'Brush Script MT', cursive;
             text-align: center;
             position: relative;
         }
         h1 {
-            font-size: 5em; 
-            color: yellow; 
+            font-size: 6em; /* Made it even bigger */
+            color: yellow;
+            text-shadow: 3px 3px 5px black; /* Ensures better visibility */
             position: relative;
             z-index: 2;
         }
@@ -28,5 +30,74 @@
             z-index: 2;
         }
         button {
-            font-size: 2em; /* Increased button font size */
-            padding: 15px 30px; /* Bigger padding for a larger button */
+            font-size: 2.5em; /* Bigger font size */
+            padding: 20px 40px; /* Bigger padding for more clickable space */
+            font-weight: bold; /* Makes text clearer */
+            margin: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        .no {
+            background-color: #6200ea;
+            color: white;
+        }
+        .message-box {
+            position: absolute;
+            background-color: rgba(128, 128, 128, 0.8);
+            color: white;
+            padding: 30px; /* Increased padding */
+            border-radius: 15px;
+            font-size: 3em;
+            font-weight: italic;
+            display: none;
+            width: 80%; /* Makes sure longer messages fit */
+            max-width: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aksha, will you be my Valentine?</h1>
+    <div class="buttons">
+        <button class="yes" onclick="yesClicked()">Yes</button>
+        <button class="no" onclick="noClicked()">No</button>
+    </div>
+    <div class="message-box" id="message-box"></div>
+    
+    <script>
+        let noClickCount = 0;
+        function noClicked() {
+            const messages = [
+                "I think you chose the wrong option.",
+                "Wear your glasses.",
+                "Woah! Chinki really can't see?",
+                "CLICK YES RIGHT NOW\nOR ELSE I'M ASKING YOUR SISTER OUT!"
+            ];
+            let messageBox = document.getElementById("message-box");
+
+            if (noClickCount < messages.length) {
+                messageBox.innerText = messages[noClickCount];
+                messageBox.style.display = "block";
+                setTimeout(() => { messageBox.style.display = "none"; }, 5000);
+                noClickCount++;
+            }
+        }
+
+        function yesClicked() {
+            document.body.innerHTML = "<h1>Aww, who's my little kitty?</h1>";
+            let audio = new Audio('https://www.myinstants.com/media/sounds/cat-meow.mp3');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
+
