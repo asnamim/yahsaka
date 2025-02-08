@@ -12,28 +12,16 @@
             align-items: center;
             height: 100vh;
             background-image: url('heart.jpg');
+            colour: yellow;
             font-family: Brush Script MT, sans-serif;
             text-align: center;
             position: relative;
         }
         h1 {
-            font-size: 2em;
+            font-size: 4em;
             position: relative;
             z-index: 2;
-        }
-        .heart-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        .heart {
-            width: 100px;
-            height: 100px;
-            background-color: #ff69b4;
-            border-radius: 50%;
-            background-size: cover;
+    
         }
         .buttons {
             margin-top: 20px;
@@ -61,8 +49,8 @@
             background-color: rgba(128, 128, 128, 0.8);
             color: white;
             padding: 20px;
-            border-radius: 10px;
-            font-size: 1.5em;
+            border-radius: 15px;
+            font-size: 3em;
             font-weight: italic;
             display: none;
             top: 50%;
@@ -70,14 +58,7 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 3;
-        }
-        .kitty-rolling {
-            position: absolute;
-            animation: roll 5s infinite linear;
-        }
-        @keyframes roll {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+   
         }
     </style>
 </head>
@@ -99,10 +80,6 @@
                 "Click YES RIGHT NOW or else I'm asking your sister out."
             ];
             let messageBox = document.getElementById("message-box");
-            let sound = new Audio('https://www.soundjay.com/button/beep-07.wav');
-            let kissSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
-            let carelessWhisper = new Audio('https://www.myinstants.com/media/sounds/careless-whisper.mp3');
-            
             if (noClickCount < messages.length) {
                 messageBox.innerText = messages[noClickCount];
                 messageBox.style.display = "block";
@@ -115,16 +92,6 @@
                 kissSound.play();
                 carelessWhisper.play();
                 setTimeout(() => { messageBox.style.display = "none"; }, 10000);
-                let img1 = document.createElement('img');
-                let img2 = document.createElement('img');
-                img1.src = 'kitty-kissi.jpg';
-                img2.src = 'kitty-kissi.jpg';
-                img1.style.position = 'absolute';
-                img2.style.position = 'absolute';
-                img1.style.left = '40%';
-                img2.style.right = '40%';
-                img1.style.top = '50%';
-                img2.style.top = '50%';
                 document.body.appendChild(img1);
                 document.body.appendChild(img2);
             }
