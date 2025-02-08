@@ -83,12 +83,6 @@
 </head>
 <body>
     <h1>Aksha, will you be my Valentine?</h1>
-    <div class="heart-container">
-        <div class="heart" style="background-image: url('1.jpg');"></div>
-        <div class="heart" style="background-image: url('2.jpg');"></div>
-        <div class="heart" style="background-image: url('3.jpg');"></div>
-        <div class="heart" style="background-image: url('4.jpg');"></div>
-        <div class="heart" style="background-image: url('5.jpg');"></div>
     </div>
     <div class="buttons">
         <button class="yes" onclick="yesClicked()">Yes</button>
@@ -100,8 +94,8 @@
         function noClicked() {
             const messages = [
                 "I think you chose the wrong option.",
-                "Woah Chinki really can't see?",
                 "Wear your glasses.",
+                "Woah! Chinki really can't see?",
                 "Click YES RIGHT NOW or else I'm asking your sister out."
             ];
             let messageBox = document.getElementById("message-box");
@@ -123,8 +117,8 @@
                 setTimeout(() => { messageBox.style.display = "none"; }, 10000);
                 let img1 = document.createElement('img');
                 let img2 = document.createElement('img');
-                img1.src = 'your-image1.jpg';
-                img2.src = 'your-image2.jpg';
+                img1.src = 'kitty-kissi.jpg';
+                img2.src = 'kitty-kissi.jpg';
                 img1.style.position = 'absolute';
                 img2.style.position = 'absolute';
                 img1.style.left = '40%';
@@ -141,7 +135,7 @@
             audio.play();
             for (let i = 0; i < 5; i++) {
                 let img = document.createElement('img');
-                img.src = 'your-image1.jpg'; // Change this to Aksha's pictures
+                img.src = 'kitty-kissi.jpg'; 
                 img.classList.add('kitty-rolling');
                 img.style.top = Math.random() * window.innerHeight + 'px';
                 img.style.left = Math.random() * window.innerWidth + 'px';
