@@ -11,18 +11,19 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url('dil.jpg'); /* Fixed missing semicolon */
-            background-size: cover; /* Ensures the image covers the full screen */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents repeating */
+            background-image: url('heart.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             font-family: 'Brush Script MT', cursive;
             text-align: center;
             position: relative;
+            overflow: hidden; /* Ensures hearts don’t overflow the screen */
         }
         h1 {
-            font-size: 6em; /* Made it even bigger */
+            font-size: 6em;
             color: yellow;
-            text-shadow: 3px 3px 5px black; /* Ensures better visibility */
+            text-shadow: 3px 3px 5px black;
             position: relative;
             z-index: 2;
         }
@@ -32,9 +33,9 @@
             z-index: 2;
         }
         button {
-            font-size: 2.5em; /* Bigger font size */
-            padding: 20px 40px; /* Bigger padding for more clickable space */
-            font-weight: bold; /* Makes text clearer */
+            font-size: 2.5em;
+            padding: 20px 40px;
+            font-weight: bold;
             margin: 15px;
             border: none;
             cursor: pointer;
@@ -52,18 +53,43 @@
             position: absolute;
             background-color: rgba(128, 128, 128, 0.8);
             color: white;
-            padding: 30px; /* Increased padding */
+            padding: 30px;
             border-radius: 15px;
             font-size: 3em;
             font-weight: italic;
             display: none;
-            width: 80%; /* Makes sure longer messages fit */
+            width: 80%;
             max-width: 600px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 3;
+        }
+
+        /* Heart Animation */
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); /* Heart icon */
+            background-size: cover;
+            animation: floatUp 2s ease-in-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-150px) scale(1.2);
+            }
         }
     </style>
 </head>
@@ -98,8 +124,29 @@
             document.body.innerHTML = "<h1>Aww, who's my little kitty?</h1>";
             let audio = new Audio('https://www.myinstants.com/media/sounds/cat-meow.mp3');
             audio.play();
+
+            // Pop hearts randomly
+            for (let i = 0; i < 20; i++) {
+                createHeart();
+            }
+        }
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+
+            setTimeout(() => {
+                heart.remove(); // Remove hearts after animation
+            }, 2000);
         }
     </script>
 </body>
 </html>
+
 
