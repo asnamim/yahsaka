@@ -91,6 +91,31 @@
                 transform: translateY(-150px) scale(1.2);
             }
         }
+
+        /* Image Rising Animation */
+        .rising-image {
+            position: absolute;
+            width: 200px; /* Adjust the size */
+            bottom: -250px; /* Start from below the screen */
+            left: 50%;
+            transform: translateX(-50%);
+            animation: slideUp 3s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            0% {
+                bottom: -250px;
+                opacity: 0;
+            }
+            50% {
+                bottom: 30%;
+                opacity: 1;
+            }
+            100% {
+                bottom: 50%;
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -108,7 +133,7 @@
                 "I think you chose the wrong option.",
                 "Wear your glasses.",
                 "Woah! Chinki really can't see?",
-                "click yes or else i'm gonna ask your sister out!"
+                "click yes or else I'm gonna ask your sister out!"
             ];
             let messageBox = document.getElementById("message-box");
 
@@ -129,6 +154,9 @@
             for (let i = 0; i < 20; i++) {
                 createHeart();
             }
+
+            // 🎉 Call the function to make the image appear 🎉
+            showRisingImage();
         }
 
         function createHeart() {
@@ -145,10 +173,10 @@
                 heart.remove();
             }, 2000);
         }
-            
- function showRisingImage() {
+
+        function showRisingImage() {
             let img = document.createElement("img");
-            img.src = "kitty.jpg"; /* Replace with your image */
+            img.src = "kitty.jpg"; /* Ensure 'kitty.jpg' is in the same folder as your HTML */
             img.classList.add("rising-image");
             document.body.appendChild(img);
 
