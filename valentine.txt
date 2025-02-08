@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 2em;
+            position: relative;
+            z-index: 2;
+        }
+        .heart-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            background-size: cover;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        .no {
+            background-color: #6200ea;
+            color: white;
+        }
+        .message-box {
+            position: absolute;
+            background-color: rgba(128, 128, 128, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 3;
+        }
+        .kitty-rolling {
+            position: absolute;
+            animation: roll 5s infinite linear;
+        }
+        @keyframes roll {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Aksha, will you be my Valentine?</h1>
+    <div class="heart-container">
+        <div class="heart" style="background-image: url('your-image1.jpg');"></div>
+        <div class="heart" style="background-image: url('your-image2.jpg');"></div>
+        <div class="heart" style="background-image: url('your-image3.jpg');"></div>
+        <div class="heart" style="background-image: url('your-image4.jpg');"></div>
+        <div class="heart" style="background-image: url('your-image5.jpg');"></div>
+    </div>
+    <div class="buttons">
+        <button class="yes" onclick="yesClicked()">Yes</button>
+        <button class="no" onclick="noClicked()">No</button>
+    </div>
+    <div class="message-box" id="message-box"></div>
+    <script>
+        let noClickCount = 0;
+        function noClicked() {
+            const messages = [
+                "I think you chose the wrong option.",
+                "Woah Chinki really can't see?",
+                "Wear your glasses.",
+                "Click YES RIGHT NOW or else I'm asking your sister out."
+            ];
+            let messageBox = document.getElementById("message-box");
+            let sound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            let kissSound = new Audio('https://www.fesliyanstudios.com/play-mp3/387');
+            let carelessWhisper = new Audio('https://www.myinstants.com/media/sounds/careless-whisper.mp3');
+            
+            if (noClickCount < messages.length) {
+                messageBox.innerText = messages[noClickCount];
+                messageBox.style.display = "block";
+                sound.play();
+                setTimeout(() => { messageBox.style.display = "none"; }, 5000);
+                noClickCount++;
+            } else {
+                messageBox.innerText = "*Loud kissing noises* Careless Whisper playing...";
+                messageBox.style.display = "block";
+                kissSound.play();
+                carelessWhisper.play();
+                setTimeout(() => { messageBox.style.display = "none"; }, 10000);
+                let img1 = document.createElement('img');
+                let img2 = document.createElement('img');
+                img1.src = 'your-image1.jpg';
+                img2.src = 'your-image2.jpg';
+                img1.style.position = 'absolute';
+                img2.style.position = 'absolute';
+                img1.style.left = '40%';
+                img2.style.right = '40%';
+                img1.style.top = '50%';
+                img2.style.top = '50%';
+                document.body.appendChild(img1);
+                document.body.appendChild(img2);
+            }
+        }
+        function yesClicked() {
+            document.body.innerHTML = "<h1>Aww, who's my little kitty?</h1>";
+            let audio = new Audio('https://www.myinstants.com/media/sounds/cat-meow.mp3');
+            audio.play();
+            for (let i = 0; i < 5; i++) {
+                let img = document.createElement('img');
+                img.src = 'your-image1.jpg'; // Change this to Aksha's pictures
+                img.classList.add('kitty-rolling');
+                img.style.top = Math.random() * window.innerHeight + 'px';
+                img.style.left = Math.random() * window.innerWidth + 'px';
+                img.style.width = '100px';
+                document.body.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>
