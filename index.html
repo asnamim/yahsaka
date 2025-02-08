@@ -12,16 +12,15 @@
             align-items: center;
             height: 100vh;
             background-image: url('heart.jpg');
-            colour: yellow;
-            font-family: Brush Script MT, sans-serif;
+            font-family: 'Brush Script MT', cursive;
             text-align: center;
             position: relative;
         }
         h1 {
-            font-size: 4em;
+            font-size: 5em; 
+            color: yellow; 
             position: relative;
             z-index: 2;
-    
         }
         .buttons {
             margin-top: 20px;
@@ -29,87 +28,5 @@
             z-index: 2;
         }
         button {
-            font-size: 1.5em;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        .yes {
-            background-color: #ff4081;
-            color: white;
-        }
-        .no {
-            background-color: #6200ea;
-            color: white;
-        }
-        .message-box {
-            position: absolute;
-            background-color: rgba(128, 128, 128, 0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 3em;
-            font-weight: italic;
-            display: none;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 3;
-   
-        }
-    </style>
-</head>
-<body>
-    <h1>Aksha, will you be my Valentine?</h1>
-    </div>
-    <div class="buttons">
-        <button class="yes" onclick="yesClicked()">Yes</button>
-        <button class="no" onclick="noClicked()">No</button>
-    </div>
-    <div class="message-box" id="message-box"></div>
-    <script>
-        let noClickCount = 0;
-        function noClicked() {
-            const messages = [
-                "I think you chose the wrong option.",
-                "Wear your glasses.",
-                "Woah! Chinki really can't see?",
-                "Click YES RIGHT NOW or else I'm asking your sister out."
-            ];
-            let messageBox = document.getElementById("message-box");
-            if (noClickCount < messages.length) {
-                messageBox.innerText = messages[noClickCount];
-                messageBox.style.display = "block";
-                sound.play();
-                setTimeout(() => { messageBox.style.display = "none"; }, 5000);
-                noClickCount++;
-            } else {
-                messageBox.innerText = "*Loud kissing noises* Careless Whisper playing...";
-                messageBox.style.display = "block";
-                kissSound.play();
-                carelessWhisper.play();
-                setTimeout(() => { messageBox.style.display = "none"; }, 10000);
-                document.body.appendChild(img1);
-                document.body.appendChild(img2);
-            }
-        }
-        function yesClicked() {
-            document.body.innerHTML = "<h1>Aww, who's my little kitty?</h1>";
-            let audio = new Audio('https://www.myinstants.com/media/sounds/cat-meow.mp3');
-            audio.play();
-            for (let i = 0; i < 5; i++) {
-                let img = document.createElement('img');
-                img.src = 'kitty-kissi.jpg'; 
-                img.classList.add('kitty-rolling');
-                img.style.top = Math.random() * window.innerHeight + 'px';
-                img.style.left = Math.random() * window.innerWidth + 'px';
-                img.style.width = '100px';
-                document.body.appendChild(img);
-            }
-        }
-    </script>
-</body>
-</html>
+            font-size: 2em; /* Increased button font size */
+            padding: 15px 30px; /* Bigger padding for a larger button */
