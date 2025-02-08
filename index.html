@@ -142,8 +142,19 @@
             heart.style.top = `${y}px`;
 
             setTimeout(() => {
-                heart.remove(); // Remove hearts after animation
+                heart.remove();
             }, 2000);
+        }
+            
+ function showRisingImage() {
+            let img = document.createElement("img");
+            img.src = "https://i.pinimg.com/originals/3f/7d/6a/3f7d6ad6299e7482c53cc8efc5cb9180.png"; /* Replace with your image */
+            img.classList.add("rising-image");
+            document.body.appendChild(img);
+
+            setTimeout(() => {
+                img.remove();
+            }, 4000); // Remove after animation
         }
     </script>
 </body>
